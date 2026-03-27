@@ -172,6 +172,20 @@
                 <&macro_release>,
                 <&mkp LCLK &kp LCTRL &kp LGUI>;
         };
+
+        screen: screen {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp PRINTSCREEN>;
+            label = "SCREEN";
+        };
+
+        lock: lock {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LA(DELETE))>;
+            label = "LOCK";
+        };
     };
 
     combos {
@@ -235,10 +249,10 @@
             display-name = "Pointer";
             bindings = <
 &kp F1         &kp F2           &kp F3           &kp F4            &kp F5             &kp F6      &kp F7                   &kp F8               &kp F9          &kp F10        &kp F11               &kp F12
-&kp LS(GRAVE)  &kp LGUI         &kp LALT         &mo SNIPING       &mkp MB4           &mkp MB5            &kp HOME         &kp PG_DN            &kp PG_UP       &kp END        &kp LS(LEFT_BRACKET)  &kp LEFT_BRACKET
-&kp CAPSLOCK   &kp LG(A)        &ctrl_cmd_hold   &mkp RCLK         &mkp LCLK          &mkp MCLK           &kp LEFT         &kp DOWN             &kp UP          &kp RIGHT      &kp LS(BACKSLASH)     &kp LS(EQUAL)
+&kp LS(GRAVE)  &none            &kp LALT         &mo SNIPING       &mkp MB4           &mkp MB5            &kp HOME         &kp PG_DN            &kp PG_UP       &kp END        &kp LS(LEFT_BRACKET)  &kp LEFT_BRACKET
+&kp CAPSLOCK   &none            &screen          &lock             &none              &none               &kp LEFT         &kp DOWN             &kp UP          &kp RIGHT      &kp LS(BACKSLASH)     &kp LS(EQUAL)
 &none          &hml LGUI LG(Z)  &hml LALT LG(X)  &hml LCTRL LG(C)  &hml LSHIFT LG(V)  &mo SCROLL          &kp RC(LS(TAB))  &hmr RSHIFT LC(TAB)  &hmr RCTRL INS  &hmr RALT INS  &kp BACKSLASH         &kp EQUAL
-               &trans           &trans           &trans            &trans             &trans      &trans                   &kp DELETE                           &trans
+               &none            &none            &none             &none              &none       &none                    &kp DELETE                           &none
             >;
         };
 
